@@ -1,0 +1,87 @@
+$admonition-types: (
+  attention: (
+    color: "var(--bs-danger)",
+    bg: "var(--bs-danger-bg-subtle)"
+  ),
+  caution: (
+    color: "var(--bs-warning)",
+    bg: "var(--bs-warning-bg-subtle)"
+  ),
+  danger: (
+    color: "var(--bs-danger)",
+    bg: "var(--bs-danger-bg-subtle)"
+  ),
+  error: (
+    color: "var(--bs-danger)",
+    bg: "var(--bs-danger-bg-subtle)"
+  ),
+  important: (
+    color: "var(--bs-info)",
+    bg: "var(--bs-info-bg-subtle)"
+  ),
+  note: (
+    color: "var(--bs-primary)",
+    bg: "var(--bs-primary-bg-subtle)"
+  ),
+  tip: (
+    color: "var(--bs-info)",
+    bg: "var(--bs-info-bg-subtle)"
+  ),
+  warning: (
+    color: "var(--bs-warning)",
+    bg: "var(--bs-warning-bg-subtle)"
+  ),
+  hint: (
+    color: "var(--bs-success)",
+    bg: "var(--bs-success-bg-subtle)",
+  )
+);
+
+
+%admonition-title {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  font-variant: small-caps;
+  line-height: 1;
+  color: var(--admonition-color);
+  text-transform: lowercase;
+  letter-spacing: .1em;
+}
+
+.admonition {
+  --admonition-color: var(--bs-secondary);
+  --admonition-bg: var(--bs-secondary-bg-subtle);
+  font-size: .9em;
+  line-height: 1.2;
+  background-color: var(--admonition-bg);
+
+  > p:last-child {
+    margin-bottom: 0;
+  }
+
+  .admonition-title {
+    @extend %admonition-title;
+  }
+
+  @each $type, $colors in $admonition-types {
+    &.#{$type} {
+      --admonition-color: #{map-get($colors, "color")};
+      --admonition-bg: #{map-get($colors, "bg")};
+
+      &::before {
+        @extend %admonition-title;
+        content: "#{$type}";
+      }
+
+      .admonition-title {
+        font-size: $h5-font-size;
+        font-variant: normal;
+        /* stylelint-disable-next-line declaration-no-important */
+        color: var(--admonition-color) !important;
+        text-transform: none;
+        letter-spacing: normal;
+      }
+    }
+  }
+}

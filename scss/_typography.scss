@@ -1,0 +1,28 @@
+$section-headings: (
+  h2: $spacer * 3,
+  h3: $spacer * 2
+);
+
+.seibootcamps-document {
+  @each $h in $headings {
+    #{$h} {
+      @extend .text-body-emphasis;
+    }
+  }
+
+  // Title of the document
+  section > h1 {
+    @include font-size($font-size-base * 3);
+  }
+
+  // Section headings
+  @each $h, $mt in $section-headings {
+    section > section > #{$h} {
+      @include margin-top($mt);
+    }
+  }
+
+  li > p {
+    @include margin-bottom(map-get($spacers, 1));
+  }
+}

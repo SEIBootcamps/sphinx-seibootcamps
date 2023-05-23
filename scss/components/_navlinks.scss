@@ -1,0 +1,30 @@
+.seibootcamps-sidebar {
+  .toctree-l1 > a {
+    display: none;
+  }
+
+  .nav-toc {
+    @extend .flex-column;
+
+    .nav-toc {
+      @include padding-left($spacer);
+    }
+  }
+
+  .nav-link {
+    @extend .text-body-secondary;
+    @include padding-left($spacer * .75);
+
+    --bs-nav-link-padding-y: $spacer * .125;
+    --bs-nav-link-padding-x: 0;
+
+    text-decoration: none;
+    border-left: .125rem solid transparent;
+    transition: $transition-base;
+
+    &:hover {
+      @extend .text-body-emphasis;
+      border-left-color: inherit;
+    }
+  }
+}

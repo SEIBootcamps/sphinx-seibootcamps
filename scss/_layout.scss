@@ -1,0 +1,29 @@
+.seibootcamps-layout {
+  grid-template-areas: "main sidebar";
+  grid-template-columns: minmax(auto, 800px) minmax(200px, auto);
+  padding-inline-start: 12.5%;
+}
+
+.seibootcamps-sidebar {
+  @include padding(map-get($spacers, 4));
+  @include font-size($font-size-base * .8);
+
+  grid-area: sidebar;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.seibootcamps-main {
+  @include padding-top(map-get($spacers, 4));
+  @include padding-bottom(map-get($spacers, 4));
+
+  grid-area: main;
+  grid-template-areas: "content";
+  grid-template-rows: auto;
+  grid-template-columns: 100%;
+  gap: inherit;
+}
+
+.seibootcamps-document {
+  grid-area: content;
+}

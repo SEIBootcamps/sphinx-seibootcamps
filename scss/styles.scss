@@ -1,0 +1,11 @@
+@import "bootstrap";
+
+$bootstrap-icons-font-dir: "../node_modules/bootstrap-icons/font/fonts";
+@import "bootstrap-icons/font/bootstrap-icons";
+
+@import "rfs/scss";
+
+@import "variables";
+@import "layout";
+@import "typography";
+@import "components";

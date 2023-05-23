@@ -1,0 +1,87 @@
+{#
+  seibootcamps/layout.html
+#}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {%- block afterbegin_head %}
+    {%- endblock afterbegin_head %}
+
+    {%- block head %}
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      {%- block extra_meta %}
+      {%- endblock extra_meta %}
+
+      <title>
+        {%- block title %}
+          {{ title }} | {{ docstitle|e }}
+        {%- endblock title %}
+      </title>
+
+      {%- block styles %}
+        {%- for css in css_files %}
+          {%- if css|attr("filename") %}
+            {{ css_tag(css) }}
+          {%- else %}
+            <link rel="stylesheet" href="{{ pathto(css, 1)|e }}" type="text/css" />
+          {%- endif %}
+        {%- endfor %}
+      {%- endblock styles %}
+    {%- endblock head %}
+
+    {%- block beforeend_head %}
+    {%- endblock beforeend_head %}
+  </head>
+  <body>
+    {%- block afterbegin_body %}
+    {%- endblock afterbegin_body %}
+
+    {%- block body %}
+      {%- block before_layout %}
+        <div class="seibootcamps-brand sticky-lg-top"></div>
+      {%- endblock before_layout %}
+
+      {%- block layout %}
+        <div class="seibootcamps-layout d-block d-lg-grid">
+          {%- block sidebar %}
+            <aside class="seibootcamps-sidebar text-body-secondary d-none d-lg-block sticky-lg-top">
+              <strong class="d-none d-md-block h6 my-2 text-body-secondary">
+                {% block sidebar_header %}On this page{% endblock sidebar_header %}
+              </strong>
+              <hr class="d-none d-md-block my-2 text-body-tertiary">
+              {%- block nav %}
+                <nav class="d-none d-md-block">
+                  {%- block inner_nav %}
+                  {%- endblock inner_nav %}
+                </nav>
+              {%- endblock nav %}
+            </aside>
+          {%- endblock sidebar %}
+
+          {%- block main %}
+          <main class="seibootcamps-main d-block d-lg-grid">
+            <div class="seibootcamps-document">
+              {% block document %} {% endblock document %}
+            </div>
+          </main>
+          {%- endblock main %}
+        </div>
+      {%- endblock layout %}
+
+      {%- block after_layout %}
+      {%- endblock after_layout %}
+
+      {%- block scripts %}
+        {%- for js in script_files %}
+          {{ js_tag(js) }}
+        {%- endfor %}
+      {%- endblock scripts %}
+
+    {%- endblock body %}
+
+    {%- block beforeend_body %}
+    {%- endblock beforeend_body %}
+  </body>
+</html>
