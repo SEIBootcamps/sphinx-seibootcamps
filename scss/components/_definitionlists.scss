@@ -1,0 +1,13 @@
+dl {
+  dd {
+    padding-inline-start: $spacer;
+    margin-bottom: 0;
+    line-height: $nested-content-line-height;
+  }
+}
+
+dd {
+  p {
+    margin-bottom: ($spacer * .5);
+  }
+}

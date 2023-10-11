@@ -1,49 +1,56 @@
 $admonition-types: (
   attention: (
-    color: "var(--bs-danger)",
-    bg: "var(--bs-danger-bg-subtle)"
+    color: "var(--bs-danger-text-emphasis)",
+    bg: "var(--bs-danger-bg-subtle)",
+    border: "var(--bs-danger-border-subtle)"
   ),
   caution: (
-    color: "var(--bs-warning)",
-    bg: "var(--bs-warning-bg-subtle)"
+    color: "var(--bs-warning-text-emphasis)",
+    bg: "var(--bs-warning-bg-subtle)",
+    border: "var(--bs-warning-border-subtle)"
   ),
   danger: (
-    color: "var(--bs-danger)",
-    bg: "var(--bs-danger-bg-subtle)"
+    color: "var(--bs-danger-text-emphasis)",
+    bg: "var(--bs-danger-bg-subtle)",
+    border: "var(--bs-danger-border-subtle)"
   ),
   error: (
-    color: "var(--bs-danger)",
-    bg: "var(--bs-danger-bg-subtle)"
+    color: "var(--bs-danger-text-emphasis)",
+    bg: "var(--bs-danger-bg-subtle)",
+    border: "var(--bs-danger-border-subtle)"
   ),
   important: (
-    color: "var(--bs-info)",
-    bg: "var(--bs-info-bg-subtle)"
+    color: "var(--bs-info-text-emphasis)",
+    bg: "var(--bs-info-bg-subtle)",
+    border: "var(--bs-info-border-subtle)"
   ),
   note: (
-    color: "var(--bs-primary)",
-    bg: "var(--bs-primary-bg-subtle)"
+    color: "var(--bs-primary-text-emphasis)",
+    bg: "var(--bs-primary-bg-subtle)",
+    border: "var(--bs-primary-border-subtle)"
   ),
   tip: (
-    color: "var(--bs-info)",
-    bg: "var(--bs-info-bg-subtle)"
+    color: "var(--bs-info-text-emphasis)",
+    bg: "var(--bs-info-bg-subtle)",
+    border: "var(--bs-info-border-subtle)"
   ),
   warning: (
-    color: "var(--bs-warning)",
-    bg: "var(--bs-warning-bg-subtle)"
+    color: "var(--bs-warning-text-emphasis)",
+    bg: "var(--bs-warning-bg-subtle)",
+    border: "var(--bs-warning-border-subtle)"
   ),
   hint: (
-    color: "var(--bs-success)",
+    color: "var(--bs-success-text-emphasis)",
     bg: "var(--bs-success-bg-subtle)",
+    border: "var(--bs-success-border-subtle)"
   )
 );
-
 
 %admonition-title {
   display: block;
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 300;
   font-variant: small-caps;
-  line-height: 1;
   color: var(--admonition-color);
   text-transform: lowercase;
   letter-spacing: .1em;
@@ -53,10 +60,25 @@ $admonition-types: (
   --admonition-color: var(--bs-secondary);
   --admonition-bg: var(--bs-secondary-bg-subtle);
   font-size: .9em;
-  line-height: 1.2;
+  line-height: $nested-content-line-height;
   background-color: var(--admonition-bg);
+  /* stylelint-disable-next-line declaration-no-important */
+  border-top-color: transparent !important;
+  /* stylelint-disable-next-line declaration-no-important */
+  border-right-color: transparent !important;
+  /* stylelint-disable-next-line declaration-no-important */
+  border-bottom-color: transparent !important;
+  /* stylelint-disable-next-line declaration-no-important */
+  border-left-color: var(--admonition-color) !important;
+  /* stylelint-disable-next-line declaration-no-important */
+  border-left-width: 4px !important;
 
-  > p:last-child {
+  > *:first-child:not(.admonition-title) {
+    margin-top: ($spacer * .5);
+  }
+
+  > p:last-child,
+  &.hint > details > p:last-child {
     margin-bottom: 0;
   }
 
@@ -64,24 +86,46 @@ $admonition-types: (
     @extend %admonition-title;
   }
 
+
+  $admonition-classes: ();
+  @each $type, $colors in $admonition-types {
+    $admonition-classes: append($admonition-classes, unquote(".#{$type}"), $separator: comma);
+  }
+
+  &:not(#{$admonition-classes}) {
+    .admonition-title {
+      font-weight: 800;
+    }
+  }
+
   @each $type, $colors in $admonition-types {
     &.#{$type} {
       --admonition-color: #{map-get($colors, "color")};
       --admonition-bg: #{map-get($colors, "bg")};
+      --admonition-border: #{map-get($colors, "border")};
+
+      /* stylelint-disable-next-line declaration-no-important */
+      border-left-color: var(--admonition-border) !important;
 
       &::before {
         @extend %admonition-title;
+        font-weight: 800;
         content: "#{$type}";
       }
 
       .admonition-title {
-        font-size: $h5-font-size;
         font-variant: normal;
         /* stylelint-disable-next-line declaration-no-important */
         color: var(--admonition-color) !important;
         text-transform: none;
         letter-spacing: normal;
+
+        * {
+          color: inherit;
+        }
       }
     }
+
   }
+
 }

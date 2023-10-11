@@ -11,8 +11,13 @@ $section-headings: (
   }
 
   // Title of the document
-  section > h1 {
-    @include font-size($font-size-base * 3);
+  section {
+    margin-block-start: ($spacer * 2);
+    margin-block-end: ($spacer * 2);
+
+    > h1 {
+      @include font-size($font-size-base * 3);
+    }
   }
 
   // Section headings
@@ -25,4 +30,8 @@ $section-headings: (
   li > p {
     @include margin-bottom(map-get($spacers, 1));
   }
+}
+
+pre {
+  font-size: .8em;
 }

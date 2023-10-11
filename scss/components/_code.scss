@@ -1,0 +1,48 @@
+%code-block {
+  background: var(--bs-tertiary-bg);
+}
+
+
+.highlight {
+  @extend .card;
+  max-height: 300px;
+  margin-bottom: $spacer;
+  overflow-x: scroll;
+  overflow-y: scroll;
+
+  > pre {
+    @extend .card-body;
+    @extend %code-block;
+    margin-bottom: 0;
+  }
+
+  .hll {
+    background: none;
+  }
+}
+
+.literal-block {
+  @extend .card;
+  @extend .card-body;
+  @extend %code-block;
+  display: block;
+}
+
+.code-block-caption {
+  .caption-text {
+    font-size: $font-size-sm;
+    font-style: italic;
+    color: var(--bs-secondary-color);
+  }
+}
+
+.emphasized {
+  > * {
+    opacity: .5;
+  }
+
+  .hll {
+    /* stylelint-disable-next-line declaration-no-important */
+    opacity: 1 !important;
+  }
+}

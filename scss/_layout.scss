@@ -1,7 +1,16 @@
 .seibootcamps-layout {
   grid-template-areas: "main sidebar";
   grid-template-columns: minmax(auto, 800px) minmax(200px, auto);
-  padding-inline-start: 12.5%;
+  @include padding(map-get($spacers, 4));
+}
+
+@include media-breakpoint-up(lg) {
+  .seibootcamps-layout {
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-inline-start: 12.5%;
+    padding-inline-end: 0;
+  }
 }
 
 .seibootcamps-sidebar {

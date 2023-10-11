@@ -1,0 +1,12 @@
+table {
+  @extend .table;
+  @extend .caption-top;
+  line-height: $nested-content-line-height;
+}
+
+th,
+td {
+  > p:last-child {
+    margin-bottom: 0;
+  }
+}

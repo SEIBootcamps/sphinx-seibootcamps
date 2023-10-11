@@ -1,4 +1,4 @@
-build: sphinx css
+build: css sphinx
 
 sphinx:
   @rm -rf examples/kitchen-sink/_build

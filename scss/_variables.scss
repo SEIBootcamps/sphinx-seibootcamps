@@ -1,1 +1,13 @@
 $headings: h1, h2, h3, h4, h5, h6;
+$content-blocks: ".highlight";
+$nested-content-line-height: 1.2;
+
+%scrollbar {
+  width: $font-size-base;
+}
+
+%scrollbar-track {
+  background: var(--bs-secondary-color);
+  border-top-right-radius: var(--bs-card-border-radius);
+  border-bottom-right-radius: var(--bs-card-border-radius);
+}
