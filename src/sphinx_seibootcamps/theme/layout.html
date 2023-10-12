@@ -9,6 +9,9 @@
     {%- endblock afterbegin_head %}
 
     {%- block head %}
+      {%- for url in html_preconnect %}
+        <link rel="preconnect" href="{{ url }}" crossorigin>
+      {%- endfor %}
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       {%- block extra_meta %}
