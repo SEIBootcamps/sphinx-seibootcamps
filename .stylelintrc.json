@@ -9,7 +9,8 @@
       "files": ["**/*.scss"],
       "rules": {
         "scss/selector-no-union-class-name": true,
-        "scss/at-function-named-arguments": "never"
+        "scss/at-function-named-arguments": null,
+        "scss/selector-no-redundant-nesting-selector": null
       }
     }
   ]
