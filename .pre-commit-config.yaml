@@ -12,3 +12,12 @@ repos:
       - id: poetry-lock
       - id: poetry-export
         args: ['--dev', '-f', 'requirements.txt', '-o', 'requirements.txt']
+  - repo: local
+    hooks:
+      - id: stylelint
+        name: stylelint
+        entry: ./node_modules/.bin/stylelint
+        language: node
+        files: ^scss/
+        types: [scss]
+        args: ['--fix']
