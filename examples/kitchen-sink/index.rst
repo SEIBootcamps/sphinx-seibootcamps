@@ -18,7 +18,7 @@ Section Heading
 Slide Title
 -----------
 
-- This is a fake lecture
+- This is a fake :t:`lecture`
 
 - But it should show lots of feature of our Sphinx system
 
@@ -37,6 +37,11 @@ Subsection
 ++++++++++
 
 Like This
+
+Another subsection
+++++++++++++++++++
+
+Hi
 
 Basic Styling
 =============

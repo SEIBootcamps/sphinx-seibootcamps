@@ -1,0 +1,4 @@
+:root {
+  --bs-body-font-family: "Source Sans 3", var(--bs-font-sans-serif);
+  --bs-font-monospace: "IBM Plex Mono", sfmono-regular, menlo, monaco, consolas, "Liberation Mono", "Courier New", monospace;
+}
