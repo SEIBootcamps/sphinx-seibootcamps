@@ -8,7 +8,7 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from sphinx.application import Sphinx
 
-from . import toctree
+from . import roles, toctree
 
 
 def setup(app: "Sphinx") -> None:

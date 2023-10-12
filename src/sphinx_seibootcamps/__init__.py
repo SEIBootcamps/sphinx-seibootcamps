@@ -16,22 +16,25 @@ __version__ = importlib.metadata.version(__name__)
 package_dir = Path(path.abspath(path.dirname(__file__)))
 
 
-def cmd_role(_, rawtext, text, *__, **___):
-    """Role for wrapping text in <span class="cmd">."""
-
-    return [nodes.inline(rawtext, text, classes=["cmd"])], []
+def add_preconnect_to_page_context(app, pagename, templatename, context, doctree):
+    context["html_preconnect"] = app.config.seibootcamps_html_preconnect
 
 
 def setup(app: "Sphinx") -> dict[str, Any]:
+    # Config values
+    app.add_config_value("seibootcamps_html_preconnect", [], rebuild="html")
+
     # Theme: seibootcamps
     app.add_html_theme("seibootcamps", str((package_dir / "theme").resolve()))
     app.add_css_file("css/styles.css.map")
     app.add_js_file("js/darkmode.js")
     app.add_js_file("js/emphasize-lines.js")
 
-    app.add_role("cmd", cmd_role)
-
     bs.setup(app)
+    bs.roles.setup(app)
+
+    # Events
+    app.connect("html-page-context", add_preconnect_to_page_context)
 
     return {
         "version": __version__,
