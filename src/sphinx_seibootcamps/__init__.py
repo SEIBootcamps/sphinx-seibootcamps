@@ -3,11 +3,11 @@ from os import path
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
-from docutils import nodes
-
-from . import bs
+from . import bs, compare, console
 
 if TYPE_CHECKING:
+    from typing import Any, Dict
+
     from sphinx.application import Sphinx
 
 __name__ = "sphinx_seibootcamps"
@@ -16,11 +16,11 @@ __version__ = importlib.metadata.version(__name__)
 package_dir = Path(path.abspath(path.dirname(__file__)))
 
 
-def add_preconnect_to_page_context(app, pagename, templatename, context, doctree):
+def add_preconnect_to_page_context(app, _, __, context, ___) -> None:
     context["html_preconnect"] = app.config.seibootcamps_html_preconnect
 
 
-def setup(app: "Sphinx") -> dict[str, Any]:
+def setup(app: "Sphinx") -> "Dict[str, Any]":
     # Config values
     app.add_config_value("seibootcamps_html_preconnect", [], rebuild="html")
 
@@ -30,7 +30,8 @@ def setup(app: "Sphinx") -> dict[str, Any]:
     app.add_js_file("js/darkmode.js")
 
     bs.setup(app)
-    bs.roles.setup(app)
+    compare.setup(app)
+    console.setup(app)
 
     # Events
     app.connect("html-page-context", add_preconnect_to_page_context)

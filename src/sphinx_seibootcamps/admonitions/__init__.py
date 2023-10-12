@@ -163,7 +163,7 @@ def depart_paragraph(self, node: nodes.paragraph):
     # For handling hints
     if "admonition-title" in node["classes"] and isinstance(node.parent, nodes.hint):
         self.body.append("<details>")
-        self.body.append("<summary></summary>")
+        self.body.append("<summary>Click to reveal the hint</summary>")
 
 
 def setup(app: "Sphinx") -> None:

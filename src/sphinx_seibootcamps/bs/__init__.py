@@ -13,3 +13,4 @@ from . import roles, toctree
 
 def setup(app: "Sphinx") -> None:
     toctree.setup(app)
+    roles.setup(app)

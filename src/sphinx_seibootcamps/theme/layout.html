@@ -3,26 +3,32 @@
 #}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" {% block html_extra_attrs %}{% endblock html_extra_attrs %}>
   <head>
     {%- block afterbegin_head %}
     {%- endblock afterbegin_head %}
 
     {%- block head %}
+
       {%- for url in html_preconnect %}
         <link rel="preconnect" href="{{ url }}" crossorigin>
       {%- endfor %}
+
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+
       {%- block extra_meta %}
       {%- endblock extra_meta %}
 
       <title>
         {%- block title %}
-          {{ title }} | {{ docstitle|e }}
+          {%- block title_prefix %}{{ title }}{% endblock title_prefix %}
+          {%- block title_separator %} | {% endblock title_separator %}
+          {%- block title_suffix %}{{ docstitle|e }}{% endblock title_suffix %}
         {%- endblock title %}
       </title>
 
+      {# CSS files, added via the Application API (app.add_css_file) or Sphinx config (html_css_files) #}
       {%- block styles %}
         {%- for css in css_files %}
           {%- if css|attr("filename") %}
@@ -32,13 +38,14 @@
           {%- endif %}
         {%- endfor %}
       {%- endblock styles %}
-    {%- endblock head %}
 
-    {%- block scripts %}
-      {%- for js in script_files %}
-        {{ js_tag(js) }}
-      {%- endfor %}
-    {%- endblock scripts %}
+      {# JS files, added via Application API (app.add_js_file) or Sphinx config (html_js_files) #}
+      {%- block scripts %}
+        {%- for js in script_files %}
+          {{ js_tag(js) }}
+        {%- endfor %}
+      {%- endblock scripts %}
+    {%- endblock head %}
 
     {%- block beforeend_head %}
     {%- endblock beforeend_head %}

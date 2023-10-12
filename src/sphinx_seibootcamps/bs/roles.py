@@ -1,10 +1,15 @@
+"""sphinx_seibootcamps.bs.roles
+
+These roles depend on Bootstrap. Don't put generic roles here.
+"""
+
 from typing import TYPE_CHECKING
 
 from docutils import nodes
 
-if TYPE_CHECKING:
-    from typing import Any, Callable, List, Tuple
+from ..roles.utils import get_role_function
 
+if TYPE_CHECKING:
     from sphinx.application import Sphinx
 
 _span_roles = {
@@ -42,20 +47,11 @@ _span_roles = {
 }
 
 
-def get_role_function(role_name: str) -> "Callable":
-    """Generate role function that wraps text in <span> and adds classes from _span_roles."""
-
-    def role_function(
-        _, rt: str, t: str, *__, **___
-    ) -> "Tuple[List[nodes.Node], List[nodes.system_message]]":
-        return [nodes.inline(rt, t, classes=_span_roles[role_name])], []
-
-    return role_function
-
-
-def setup(app: "Sphinx") -> dict[str, "Any"]:
-    # Alias title reference to `t` so it can be used in MyST docs to wrap
-    # text in <cite></cite> tags.
-    app.add_generic_role("t", nodes.title_reference)
+def setup(app: "Sphinx") -> None:
     for role_name in _span_roles:
-        app.add_role(role_name, get_role_function(role_name))
+        app.add_role(
+            role_name,
+            get_role_function(
+                nodes.inline, opts_fn=lambda: {"classes": _span_roles[role_name]}
+            ),
+        )
