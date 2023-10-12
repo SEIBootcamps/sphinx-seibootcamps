@@ -1,3 +1,7 @@
+/* stylelint-disable declaration-no-important */
+/// scss/components/_admonitions.scss
+/// Admonitions.
+
 $admonition-types: (
   attention: (
     color: "var(--bs-danger-text-emphasis)",
@@ -46,86 +50,80 @@ $admonition-types: (
   )
 );
 
-%admonition-title {
+// Generate list of admonition class selectors.
+@function make-admonition-classes($types-map) {
+  $admonition-classes: ();
+  @each $type, $colors in $types-map {
+    $admonition-classes: append($admonition-classes, unquote(".#{$type}"), $separator: comma);
+  }
+  @return $admonition-classes;
+}
+
+// Subtitles display the type of admonition, i.e. 'hint'
+%admonition-type-subtitle {
+  @include rfs(.1em, letter-spacing);
   display: block;
-  font-size: 1rem;
-  font-weight: 300;
+  font-weight: 800;
   font-variant: small-caps;
   color: var(--admonition-color);
   text-transform: lowercase;
-  letter-spacing: .1em;
 }
 
+.admonition-title {
+  @include font-size(1rem);
+  font-weight: 300;
+
+  & > * {
+    color: inherit;
+  }
+}
+
+// Default admonition.
 .admonition {
   --admonition-color: var(--bs-secondary);
-  --admonition-bg: var(--bs-secondary-bg-subtle);
-  font-size: .9em;
-  line-height: $nested-content-line-height;
-  background-color: var(--admonition-bg);
-  /* stylelint-disable-next-line declaration-no-important */
-  border-top-color: transparent !important;
-  /* stylelint-disable-next-line declaration-no-important */
-  border-right-color: transparent !important;
-  /* stylelint-disable-next-line declaration-no-important */
-  border-bottom-color: transparent !important;
-  /* stylelint-disable-next-line declaration-no-important */
-  border-left-color: var(--admonition-color) !important;
-  /* stylelint-disable-next-line declaration-no-important */
-  border-left-width: 4px !important;
+  --admonition-background: var(--bs-secondary-bg-subtle);
+  --admonition-border-color: var(--bs-secondary-border-subtle);
 
-  > *:first-child:not(.admonition-title) {
-    margin-top: ($spacer * .5);
+  @include font-size(.9em);
+  @include rfs(4px !important, border-left-width);
+  line-height: $nested-line-height;
+  background: var(--admonition-background);
+  border-top-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom-color: transparent !important;
+  border-left-color: var(--admonition-border-color) !important;
+
+  & > *:first-child:not(.admonition-title) {
+    @include margin-top($spacer * .5);
   }
 
-  > p:last-child,
+  & > p:last-child,
   &.hint > details > p:last-child {
     margin-bottom: 0;
   }
 
   .admonition-title {
-    @extend %admonition-title;
+    color: var(--admonition-color);
   }
 
-
-  $admonition-classes: ();
-  @each $type, $colors in $admonition-types {
-    $admonition-classes: append($admonition-classes, unquote(".#{$type}"), $separator: comma);
-  }
-
-  &:not(#{$admonition-classes}) {
+  // If this is a generic admontion, use its title as the subtitle.
+  &:not(#{make-admonition-classes($admonition-types)}) {
     .admonition-title {
-      font-weight: 800;
+      @extend %admonition-type-subtitle;
     }
   }
 
+  // Styles for admonition types from $admonition-types.
   @each $type, $colors in $admonition-types {
     &.#{$type} {
       --admonition-color: #{map-get($colors, "color")};
-      --admonition-bg: #{map-get($colors, "bg")};
-      --admonition-border: #{map-get($colors, "border")};
-
-      /* stylelint-disable-next-line declaration-no-important */
-      border-left-color: var(--admonition-border) !important;
+      --admonition-background: #{map-get($colors, "bg")};
+      --admonition-border-color: #{map-get($colors, "border")};
 
       &::before {
-        @extend %admonition-title;
-        font-weight: 800;
+        @extend %admonition-type-subtitle;
         content: "#{$type}";
       }
-
-      .admonition-title {
-        font-variant: normal;
-        /* stylelint-disable-next-line declaration-no-important */
-        color: var(--admonition-color) !important;
-        text-transform: none;
-        letter-spacing: normal;
-
-        * {
-          color: inherit;
-        }
-      }
     }
-
   }
-
 }

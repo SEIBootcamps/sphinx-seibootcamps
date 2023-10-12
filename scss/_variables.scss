@@ -1,6 +1,11 @@
+/// scss/_variables.scss
+/// Do not put variables used to configure Bootstrap here. Those should
+/// go in scss/_bootstrap.scss instead. This file is for variables
+/// specific to our styles, not Bootstrap's.
+
 $headings: h1, h2, h3, h4, h5, h6;
 $content-blocks: ".highlight";
-$nested-content-line-height: 1.2;
+$nested-line-height: 1.2; // line height for content that's *semantically* nested inside main document.
 
 %scrollbar {
   width: $font-size-base;
@@ -13,7 +18,6 @@ $nested-content-line-height: 1.2;
 }
 
 // Generate utility classes
-
 $sei-colors: (
   "blue": $blue,
   "blue-light": $blue-300,

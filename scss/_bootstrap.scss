@@ -1,4 +1,13 @@
-/// scss/bootstrap.scss
+/// scss/_bootstrap.scss
+/// All Bootstrap related imports go here.
+
+// Bootstrap's RFS engine
+// See: https://getbootstrap.com/docs/5.0/getting-started/rfs/
+@import "rfs/scss";
+
+// Required for icon fonts
+$bootstrap-icons-font-dir: "../node_modules/bootstrap-icons/font/fonts";
+@import "bootstrap-icons/font/bootstrap-icons";
 
 // Required
 @import "bootstrap/scss/functions";

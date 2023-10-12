@@ -1,12 +1,10 @@
+/// scss/styles.scss
+/// Main entrypoint. Import all stylesheets here.
+
 @import "bootstrap";
 
-$bootstrap-icons-font-dir: "../node_modules/bootstrap-icons/font/fonts";
-@import "bootstrap-icons/font/bootstrap-icons";
-
-@import "rfs/scss";
-
 @import "variables";
-@import "docutilsreset";
+@import "reset";
 @import "layout";
 @import "typography";
 @import "components";

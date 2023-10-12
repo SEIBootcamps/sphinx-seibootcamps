@@ -1,3 +1,6 @@
+/// scss/_layout.scss
+/// Styles for layout of default theme.
+
 .seibootcamps-layout {
   grid-template-areas: "main sidebar";
   grid-template-columns: minmax(auto, 800px) minmax(200px, auto);

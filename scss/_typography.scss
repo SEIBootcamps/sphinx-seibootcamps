@@ -1,19 +1,13 @@
-$section-headings: (
-  h2: $spacer * 3,
-  h3: $spacer * 2
-);
+/// scss/_typography.scss
+/// Styles for typography. Keep rules contained under .seibootcamps-document unless you know
+/// what you're doing.
+
 
 .seibootcamps-document {
-  @each $h in $headings {
-    #{$h} {
-      @extend .text-body-emphasis;
-    }
-  }
-
   // Title of the document
   section {
-    margin-block-start: ($spacer * 2);
-    margin-block-end: ($spacer * 2);
+    @include margin-top($spacer * 2);
+    @include margin-bottom($spacer * 2);
 
     > h1 {
       @include font-size($font-size-base * 3);
@@ -21,6 +15,10 @@ $section-headings: (
   }
 
   // Section headings
+  $section-headings: (
+    h2: $spacer * 3,
+    h3: $spacer * 2
+  );
   @each $h, $mt in $section-headings {
     section > section > #{$h} {
       @include margin-top($mt);
@@ -37,7 +35,7 @@ $section-headings: (
   }
 
   pre {
-    font-size: .8em;
+    @include font-size(.8em);
   }
 }
 

@@ -2,7 +2,7 @@ table {
   &:not(.hlist) {
     @extend .table;
     @extend .caption-top;
-    line-height: $nested-content-line-height;
+    line-height: $nested-line-height;
   }
 }
 
