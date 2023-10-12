@@ -34,6 +34,12 @@
       {%- endblock styles %}
     {%- endblock head %}
 
+    {%- block scripts %}
+      {%- for js in script_files %}
+        {{ js_tag(js) }}
+      {%- endfor %}
+    {%- endblock scripts %}
+
     {%- block beforeend_head %}
     {%- endblock beforeend_head %}
   </head>
@@ -75,13 +81,6 @@
 
       {%- block after_layout %}
       {%- endblock after_layout %}
-
-      {%- block scripts %}
-        {%- for js in script_files %}
-          {{ js_tag(js) }}
-        {%- endfor %}
-      {%- endblock scripts %}
-
     {%- endblock body %}
 
     {%- block beforeend_body %}
