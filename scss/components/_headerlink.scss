@@ -8,12 +8,14 @@ $headerlink-parents: h1, h2, h3, h4, h5, h6, caption, ".code-block-caption";
   transition: $transition-fade;
 
   &:hover {
-    opacity: 100%;
+    opacity: .6;
   }
 }
 
-@each $parent in $headerlink-parents {
-  #{$parent} {
-    position: relative;
+.seibootcamps-document {
+  @each $parent in $headerlink-parents {
+    #{$parent} {
+      position: relative;
+    }
   }
 }

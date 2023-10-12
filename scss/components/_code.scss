@@ -8,6 +8,7 @@
   max-height: rfs-fluid-value(300px);
   overflow-x: scroll;
   overflow-y: scroll;
+  color: inherit;
 
   & > pre {
     @extend .card-body;

@@ -87,6 +87,7 @@ $admonition-types: (
   @include font-size(.9em);
   @include rfs(4px !important, border-left-width);
   line-height: $nested-line-height;
+  color: var(--bs-secondary-color);
   background: var(--admonition-background);
   border-top-color: transparent !important;
   border-right-color: transparent !important;

@@ -1,6 +1,6 @@
 dl {
   dd {
-    padding-inline-start: $spacer;
+    @include padding-left($spacer);
     margin-bottom: 0;
     line-height: $nested-line-height;
   }
@@ -8,6 +8,6 @@ dl {
 
 dd {
   p {
-    margin-bottom: ($spacer * .5);
+    @include margin-bottom($spacer * .5);
   }
 }
