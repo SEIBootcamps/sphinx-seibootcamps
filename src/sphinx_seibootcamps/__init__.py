@@ -28,7 +28,6 @@ def setup(app: "Sphinx") -> dict[str, Any]:
     app.add_html_theme("seibootcamps", str((package_dir / "theme").resolve()))
     app.add_css_file("css/styles.css.map")
     app.add_js_file("js/darkmode.js")
-    app.add_js_file("js/emphasize-lines.js")
 
     bs.setup(app)
     bs.roles.setup(app)
