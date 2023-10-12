@@ -128,3 +128,10 @@ $admonition-types: (
     }
   }
 }
+
+.hint {
+  summary { // "Click to reveal hint" text
+    font-style: italic;
+    font-weight: 300;
+  }
+}
