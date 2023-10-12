@@ -594,7 +594,7 @@ Instead of just one thing:
 
 Side-by-side comparisons are useful:
 
-.. container:: compare
+.. compare::
 
    .. code-block:: js
 
@@ -606,7 +606,7 @@ Side-by-side comparisons are useful:
       if name == "joel":
            print("hi")
 
-.. container:: compare
+.. compare::
 
    .. container::
 
@@ -627,7 +627,7 @@ Side-by-side comparisons are useful:
 
 You can compare an arbitrary #  of things:
 
-.. container:: compare
+.. compare::
 
    .. container::
 
