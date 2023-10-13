@@ -12,8 +12,7 @@ from ..roles.utils import get_role_function
 if TYPE_CHECKING:
     from sphinx.application import Sphinx
 
-_span_roles = {
-    "cmd": ["cmd"],
+COLOR_ROLES = {
     "blue": ["text-blue"],
     "blue-light": ["text-blue-light"],
     "blue-dark": ["text-blue-dark"],
@@ -44,14 +43,21 @@ _span_roles = {
     "cyan": ["text-cyan"],
     "cyan-light": ["text-cyan-light"],
     "cyan-dark": ["text-cyan-dark"],
+    "body": ["text-body"],
+    "black": ["text-black"],
+    "black50": ["text-black-50"],
+    "white": ["text-white"],
+    "white50": ["text-white-50"],
+    "secondary": ["text-body-secondary"],
+    "tertiary": ["text-body-tertiary"],
 }
 
 
-def setup(app: "Sphinx") -> None:
-    for role_name in _span_roles:
+def add_color_roles(app: "Sphinx") -> None:
+    for role_name in COLOR_ROLES:
         app.add_role(
             role_name,
             get_role_function(
-                nodes.inline, opts_fn=lambda: {"classes": _span_roles[role_name]}
+                nodes.inline, opts_fn=lambda: {"classes": COLOR_ROLES[role_name]}
             ),
         )

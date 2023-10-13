@@ -54,9 +54,19 @@
     {%- block afterbegin_body %}
     {%- endblock afterbegin_body %}
 
+    {%- block bootstrap_icons %}
+      <div class="d-none">
+        {% include 'bootstrap-icons.svg.jinja' %}
+      </div>
+    {%- endblock bootstrap_icons %}
+
     {%- block body %}
       {%- block before_layout %}
-        <div class="seibootcamps-brand sticky-lg-top"></div>
+        <div class="seibootcamps-brand sticky-lg-top">
+          {%- block theme_toggler %}
+            {% include 'themetoggler.html.jinja' %}
+          {%- endblock theme_toggler %}
+        </div>
       {%- endblock before_layout %}
 
       {%- block layout %}

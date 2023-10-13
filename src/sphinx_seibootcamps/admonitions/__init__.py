@@ -89,7 +89,7 @@ class Warning(OverrideAdmonition):
 def visit_title(self, node: nodes.title):
     # Skip node if this is a title for a hint
     if isinstance(node.parent, nodes.hint) and node.parent.index(node) == 0:
-        raise nodes.SkipNode
+        return
 
     super(HTML5Translator, self).visit_title(node)
 
@@ -103,11 +103,7 @@ def depart_title(self, node: nodes.title):
 
 
 def visit_admonition(self, node: nodes.Element, name: str = ""):
-    self.body.append(
-        self.starttag(
-            node, "div", CLASS=("admonition py-3 px-4 my-4 rounded border " + name)
-        )
-    )
+    self.body.append(self.starttag(node, "div", CLASS=("admonition " + name)))
 
 
 def depart_admonition(self, node: nodes.Element):
