@@ -23,13 +23,10 @@ pip install -r requirements.txt
 
 ### Install Node dependencies
 
-Using yarn or npm:
+Using **yarn**:
 
 ```sh
 yarn install
-
-# or
-npm install
 ```
 
 ### Install git hooks
