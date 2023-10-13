@@ -3,14 +3,13 @@ Demo Lecture
 ============
 
 Download Demo
--------------
+=============
 
 To download the demo code for this lecture, run the following:
 
-.. parsed-literal::
-   :class: console
+.. console::
 
-   $ `hbget demo --demo`:cmd:
+   \$ :cmd:`hbget demo --demo`
 
 Section Heading
 ===============
@@ -86,7 +85,11 @@ Citations use single backticks: \`like this\`. Use for:
 Code Literals
 -------------
 
-Code literals use double backticks: \`\`like this\`\`
+Code literals use double backticks:
+
+.. code-block:: rst
+
+   ``like this``
 
 These are for literal code blocks or literal coding values:
 
@@ -120,44 +123,41 @@ As an example:
 | You can force line breaks
 | by doing this
 
-Or, you can add a slide-only break |reveal-br|
-like this.
+.. Or, you can add a slide-only break |reveal-br|
+.. like this.
 
-Symbols
--------
+.. Symbols
+.. -------
 
-- |nbsp|    NONBREAKING SPACE
+.. - |nbsp|    NONBREAKING SPACE
 
-- |rarr|    RIGHTWARDS ARROW
+.. - |rarr|    RIGHTWARDS ARROW
 
-- |larr|    LEFTWARDS ARROW
+.. - |larr|    LEFTWARDS ARROW
 
-- |lrarr|   BOTH ARROW
+.. - |lrarr|   BOTH ARROW
 
-- |plus|    PLUS SIGN
+.. - |plus|    PLUS SIGN
 
-- |times|   MULTIPLICATION SIGN
+.. - |times|   MULTIPLICATION SIGN
 
-- |check|   CHECK MARK
+.. - |check|   CHECK MARK
 
-- |approx|  ALMOST EQUAL TO
+.. - |approx|  ALMOST EQUAL TO
 
-- |sub2|    SUBSCRIPT 2
+.. - |sub2|    SUBSCRIPT 2
 
-- |super2|  SUPERSCRIPT 2
+.. - |super2|  SUPERSCRIPT 2
 
+.. - |pycmd|   The command to run Python
 
-- |pycmd|   The command to run Python
+Icons
+-----
 
-And the same replacement, inside the console:
+|bi-hearts| |bi-fire| |bi-123| Supports icons from Bootstrap Icons.
 
-.. parsed-literal::
-   :class: console
-
-   $ |pycmd| `show_prompt.py`:cmd:
-
-Lists
-=====
+Listing Stuff
+=============
 
 Lists
 -----
@@ -197,7 +197,7 @@ More about complex lists:
 
   .. code-block::
 
-    x = 0
+     x = 0
 
 - See?
 
@@ -255,24 +255,24 @@ If your slide title is the same as the section title, like this,
 the handouts won't repeat it. So do this for things like the "Goals"
 slide in a "Goals" section.
 
-New Slides
-----------
+.. New Slides
+.. ----------
 
-When you want slide break that shouldn't cause a new
-heading in the handouts, |reveal-br| use the `newslide` directive.
+.. When you want slide break that shouldn't cause a new
+.. heading in the handouts, |reveal-br| use the `newslide` directive.
 
-This is a new slide with the same title, but on the handouts, it
-just flows.
+.. This is a new slide with the same title, but on the handouts, it
+.. just flows.
 
-Note: slide content isn't contained in `newslide`,
-it just appears after it.
+.. Note: slide content isn't contained in `newslide`,
+.. it just appears after it.
 
-This is a new slide with a new title, but on the handouts, it just
-flows.
+.. This is a new slide with a new title, but on the handouts, it just
+.. flows.
 
-A new slide with an addition to the title.
+.. A new slide with an addition to the title.
 
-You can also use newslide to get background colors
+.. You can also use newslide to get background colors
 
 Images
 ======
@@ -333,16 +333,14 @@ Console
 
 We use a special class on parsed literal for showing shell commands:
 
-.. parsed-literal::
-   :class: console
+.. console::
 
-   $ `echo "this is a command"`:cmd:
+   \$ :cmd:`echo "this is a command"`
    this is a command
 
-   $ `echo`:cmd:  `# comment`:comment:
+   \$ `echo`:cmd:  :secondary:`# comment`
 
-.. parsed-literal::
-   :class: console
+.. console::
 
    Hello
 
