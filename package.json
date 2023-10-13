@@ -1,13 +1,9 @@
 {
-  "name": "color-modes",
-  "description": "Include Bootstrap's source Sass, JavaScript plugins, and color mode functionality via npm.",
+  "name": "sphinx-seibootcamps",
+  "description": "Styles for sphinx-seibootcamp's default theme.",
   "version": "0.0.0",
-  "private": true,
-  "repository": "twbs/examples",
-  "license": "MIT",
-  "stackblitz": {
-    "startCommand": "npm start"
-  },
+  "repository": "SEIBootcamps/sphinx-seibootcamps",
+  "license": "Mozilla Public License 2.0",
   "scripts": {
     "build": "npm run css",
     "css-compile": "sass --style compressed --source-map --embed-sources --no-error-css --load-path=node_modules scss/:src/sphinx_seibootcamps/theme/static/css/",
