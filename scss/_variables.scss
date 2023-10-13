@@ -7,16 +7,6 @@ $headings: h1, h2, h3, h4, h5, h6;
 $content-blocks: ".highlight";
 $nested-line-height: 1.2; // line height for content that's *semantically* nested inside main document.
 
-%scrollbar {
-  width: $font-size-base;
-}
-
-%scrollbar-track {
-  background: var(--bs-secondary-color);
-  border-top-right-radius: var(--bs-card-border-radius);
-  border-bottom-right-radius: var(--bs-card-border-radius);
-}
-
 // Generate utility classes
 $sei-colors: (
   "blue": $blue,

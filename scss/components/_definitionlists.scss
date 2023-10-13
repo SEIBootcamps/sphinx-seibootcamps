@@ -8,6 +8,6 @@ dl {
 
 dd {
   p {
-    @include margin-bottom($spacer * .5);
+    @include margin-bottom(map-get($spacers, 2));
   }
 }

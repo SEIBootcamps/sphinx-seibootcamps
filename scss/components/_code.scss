@@ -23,11 +23,3 @@
   @extend %code-block;
   display: block;
 }
-
-.code-block-caption {
-  .caption-text {
-    font-size: $font-size-sm;
-    font-style: italic;
-    color: var(--bs-secondary-color);
-  }
-}

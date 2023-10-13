@@ -37,5 +37,11 @@
   pre {
     @include font-size(.8em);
   }
+
+  .caption-text {
+    @include font-size($font-size-sm);
+    font-style: italic;
+    color: var(--bs-secondary-color);
+  }
 }
 

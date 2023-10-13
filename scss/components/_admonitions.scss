@@ -80,12 +80,21 @@ $admonition-types: (
 
 // Default admonition.
 .admonition {
+  @extend .rounded;
+  @extend .border;
+
+  @include font-size(.9em);
+  @include rfs(4px !important, border-left-width);
+  @include padding-top(map-get($spacers, 3));
+  @include padding-bottom(map-get($spacers, 3));
+  @include padding-left(map-get($spacers, 4));
+  @include padding-right(map-get($spacers, 4));
+  @include margin-bottom(map-get($spacers, 4));
+
   --admonition-color: var(--bs-secondary);
   --admonition-background: var(--bs-secondary-bg-subtle);
   --admonition-border-color: var(--bs-secondary-border-subtle);
 
-  @include font-size(.9em);
-  @include rfs(4px !important, border-left-width);
   line-height: $nested-line-height;
   color: var(--bs-secondary-color);
   background: var(--admonition-background);
@@ -95,7 +104,7 @@ $admonition-types: (
   border-left-color: var(--admonition-border-color) !important;
 
   & > *:first-child:not(.admonition-title) {
-    @include margin-top($spacer * .5);
+    @include margin-top(map-get($spacers, 2));
   }
 
   & > p:last-child,
