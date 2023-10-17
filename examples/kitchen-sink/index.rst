@@ -156,6 +156,50 @@ Icons
 
 |bi-hearts| |bi-fire| |bi-123| Supports icons from Bootstrap Icons.
 
+Colors
+------
+
+.. hlist::
+   :columns: 4
+   
+   - :body:`body`
+   - :secondary:`secondary`
+   - :tertiary:`tertiary`
+   - :black:`black`
+   - :white:`white`
+   - :black50:`black50`
+   - :white50:`white50`
+   - :blue:`blue`
+   - :blue-light:`blue-light`
+   - :blue-dark:`blue-dark`
+   - :indigo:`indigo`
+   - :indigo-light:`indigo-light`
+   - :indigo-dark:`indigo-dark`
+   - :purple:`purple`
+   - :purple-light:`purple-light`
+   - :purple-dark:`purple-dark`
+   - :pink:`pink`
+   - :pink-light:`pink-light`
+   - :pink-dark:`pink-dark`
+   - :red:`red`
+   - :red-light:`red-light`
+   - :red-dark:`red-dark`
+   - :orange:`orange`
+   - :orange-light:`orange-light`
+   - :orange-dark:`orange-dark`
+   - :yellow:`yellow`
+   - :yellow-light:`yellow-light`
+   - :yellow-dark:`yellow-dark`
+   - :green:`green`
+   - :green-light:`green-light`
+   - :green-dark:`green-dark`
+   - :teal:`teal`
+   - :teal-light:`teal-light`
+   - :teal-dark:`teal-dark`
+   - :cyan:`cyan`
+   - :cyan-light:`cyan-light`
+   - :cyan-dark:`cyan-dark`
+
 Listing Stuff
 =============
 
@@ -341,8 +385,8 @@ We use a special class on parsed literal for showing shell commands:
    \$ `echo`:cmd:  :secondary:`# comment`
 
 .. console::
-
-   Hello
+   
+   Hello there, how are you doing?
 
 Code Blocks
 ===========

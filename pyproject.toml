@@ -8,8 +8,8 @@ license = "MPL 2.0"
 packages = [{ include = "sphinx_seibootcamps", from = "src" }]
 
 [tool.poetry.dependencies]
-python = ">=3.10, <3.12"
-sphinx = "^6"
+python = ">=3.10, <4"
+sphinx = ">=6, <8"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.3.1"
