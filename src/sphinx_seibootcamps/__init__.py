@@ -26,6 +26,7 @@ def setup(app: "Sphinx") -> "Dict[str, Any]":
 
     # Theme: seibootcamps
     app.add_html_theme("seibootcamps", str((package_dir / "theme").resolve()))
+    app.add_css_file("css/styles.css")
     app.add_css_file("css/styles.css.map")
     app.add_js_file(  # Bootstrap JS
         "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
