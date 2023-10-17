@@ -57,6 +57,7 @@ def setup(app: "Sphinx") -> "Dict[str, Any]":
 
     # Events
     app.connect("html-page-context", add_preconnect_to_page_context)
+    app.connect("build-finished", copy_seibootcamps_assets)
 
     return {
         "version": __version__,
