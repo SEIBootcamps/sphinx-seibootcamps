@@ -25,9 +25,9 @@ def add_preconnect_to_page_context(app, _, __, context, ___) -> None:
 def copy_seibootcamps_assets(app: "Sphinx", exc: Exception) -> None:
     staticdir = (Path(app.builder.outdir) / "_static").resolve()
     assets = [
-        "css/styles.css",
-        "css/styles.css.map",
-        "js/darkmode.js",
+        "static/css/styles.css",
+        "static/css/styles.css.map",
+        "static/js/darkmode.js",
     ]
     for f in assets:
         source = theme_dir / f
