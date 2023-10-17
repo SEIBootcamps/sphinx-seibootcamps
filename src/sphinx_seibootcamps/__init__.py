@@ -2,7 +2,7 @@ from typing import TYPE_CHECKING, Any
 import importlib.metadata
 from os import path
 from pathlib import Path
-from sphinx.util.osutil import copyfile
+from sphinx.util.osutil import copyfile, ensuredir
 
 from . import bs, compare, console
 
@@ -32,6 +32,7 @@ def copy_seibootcamps_assets(app: "Sphinx", exc: Exception) -> None:
     for f in assets:
         source = theme_dir / f
         dest = staticdir / "seibootcamps" / Path(f).name
+        ensuredir(str(dest.parent))
         copyfile(str(source), str(dest))
 
 
