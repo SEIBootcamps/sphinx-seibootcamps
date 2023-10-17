@@ -17,6 +17,12 @@ black = "^23.3.0"
 myst-parser = "^1.0.0"
 pre-commit = "^3.4.0"
 
+[tool.poetry.group.lsp]
+optional = true
+
+[tool.poetry.group.lsp.dependencies]
+esbonio = "*"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
