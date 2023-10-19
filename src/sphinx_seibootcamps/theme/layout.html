@@ -56,7 +56,7 @@
 
     {%- block bootstrap_icons %}
       <div class="d-none">
-        {% include 'bootstrap-icons.svg.jinja' %}
+        {{ bs_icons|safe }}
       </div>
     {%- endblock bootstrap_icons %}
 
