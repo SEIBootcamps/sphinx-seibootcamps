@@ -1,4 +1,4 @@
-extensions = ["sphinx_seibootcamps", "sphinx_seibootcamps.admonitions"]
+extensions = ["sphinx_seibootcamps"]
 html_theme = "seibootcamps"
 seibootcamps_html_preconnect = [
     "https://fonts.googleapis.com",
