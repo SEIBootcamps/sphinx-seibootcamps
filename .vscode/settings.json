@@ -1,0 +1,6 @@
+{
+  "esbonio.sphinx.confDir": "examples/kitchen-sink/",
+  "files.associations": {
+    "*.html": "jinja-html"
+  }
+}
