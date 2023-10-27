@@ -2,6 +2,13 @@
 Demo Lecture
 ============
 
+.. only:: not revealjs
+
+   A demo of all the things. Notice that the first paragraph becomes the
+   `lead paragraph`, which you should use to summarize the contents of the lesson.
+   It should be hidden when using the `revealjs` builder, so take care to wrap
+   it in an ``.. only::`` directive.
+
 Download Demo
 =============
 
@@ -161,7 +168,7 @@ Colors
 
 .. hlist::
    :columns: 4
-   
+
    - :body:`body`
    - :secondary:`secondary`
    - :tertiary:`tertiary`
@@ -289,6 +296,56 @@ You can specify # columns, too:
 
    - six
 
+Ordered List Styles
+-------------------
+
+We support numeric, alpha, and roman lists.
+
+Decimal
++++++++
+
+#. Number
+
+#. Number
+
+#. Number
+
+Alpha
++++++
+
+A. Alpha
+
+B. Alpha
+
+C. Alpha
+
+Lower Alpha
++++++++++++
+
+a. Lower alpha
+
+b. Lower alpha
+
+c. Lower alpha
+
+Roman
++++++
+
+I. Roman
+
+II. Roman
+
+III. Roman
+
+Lower Roman
++++++++++++
+
+i. Lower roman
+
+ii. Lower roman
+
+iii. Lower roman
+
 Organization
 ============
 
@@ -385,7 +442,7 @@ We use a special class on parsed literal for showing shell commands:
    \$ `echo`:cmd:  :secondary:`# comment`
 
 .. console::
-   
+
    Hello there, how are you doing?
 
 Code Blocks
