@@ -16,7 +16,8 @@ __name__ = "sphinx_seibootcamps"
 __version__ = importlib.metadata.version(__name__)
 
 package_dir = Path(path.abspath(path.dirname(__file__)))
-theme_dir = package_dir / "theme"
+themes_dir = package_dir / "themes"
+seibootcamps_theme_dir = themes_dir / "seibootcamps"
 theme_static_assets = ["darkmode.js"]
 
 
@@ -25,7 +26,7 @@ def setup(app: "Sphinx") -> "Dict[str, Any]":
     app.add_config_value("seibootcamps_html_preconnect", [], rebuild="html")
 
     # Theme: seibootcamps
-    app.add_html_theme("seibootcamps", str((package_dir / "theme").resolve()))
+    app.add_html_theme("seibootcamps", str(seibootcamps_theme_dir.resolve()))
     app.connect("config-inited", add_theme_static_files)
     app.connect("build-finished", copy_theme_static_files)
     app.connect("html-page-context", add_preconnect_to_page_context)
@@ -57,7 +58,7 @@ def copy_theme_static_files(app: "Sphinx", _) -> None:
     # only run this if the theme is seibootcamps
     if app.config.html_theme == "seibootcamps":
         out_static_dir = (Path(app.builder.outdir) / "_static").resolve()
-        source_static_dir = theme_dir / "static"
+        source_static_dir = seibootcamps_theme_dir / "static"
         for f in theme_static_assets:
             source = source_static_dir / f
             dest = out_static_dir / f

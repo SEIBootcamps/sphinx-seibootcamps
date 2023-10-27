@@ -7,6 +7,8 @@ if TYPE_CHECKING:
 
 
 def visit_table(self, node: "nodes.table") -> None:
+    # Adds a div around the table to allow for horizontal scrolling.
+    # Rules for .table-scroller can be found in scss/components/_tables.scss
     self.body.append('<div class="table-scroller">')
     super(HTML5Translator, self).visit_table(node)
 
