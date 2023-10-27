@@ -9,3 +9,7 @@ css:
 
 start:
   yarn start
+
+version semver:
+  poetry version {{semver}}
+  yarn version --{{semver}}
