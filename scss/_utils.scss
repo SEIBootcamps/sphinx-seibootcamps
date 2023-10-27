@@ -7,3 +7,25 @@
   @extend %seibootcamps-layout-full-width;
 }
 
+// List styles
+ol {
+  list-style: decimal;
+}
+
+.upperalpha,
+.alpha {
+  list-style: upper-alpha;
+}
+
+.loweralpha {
+  list-style: lower-alpha;
+}
+
+.upperroman,
+.roman {
+  list-style: upper-roman;
+}
+
+.lowerroman {
+  list-style: lower-roman;
+}
