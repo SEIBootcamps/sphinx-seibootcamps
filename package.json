@@ -23,6 +23,7 @@
     "@popperjs/core": "^2.11.7",
     "bootstrap": "^5.3.0-alpha3",
     "bootstrap-icons": "^1.10.5",
+    "reveal.js": "^4.6.1",
     "rfs": "^10.0.0"
   },
   "devDependencies": {
