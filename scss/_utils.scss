@@ -1,0 +1,9 @@
+%seibootcamps-layout-full-width {
+  width: calc(100vw - $sidebar-max-width - map-get($spacers, 5));
+}
+
+// Widths
+.w-full {
+  @extend %seibootcamps-layout-full-width;
+}
+
