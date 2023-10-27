@@ -1,7 +1,7 @@
 {
   "name": "sphinx-seibootcamps",
   "description": "Styles for sphinx-seibootcamp's default theme.",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "repository": "SEIBootcamps/sphinx-seibootcamps",
   "license": "MPL-2.0",
   "scripts": {
