@@ -1,25 +1,17 @@
-{%- extends "basic/layout.html" %}
+{#
+  revealjs/layout.html
+#}
 
-{%- block css %}
-  {{ super() }}
-{%- endblock css %}
+{%- extends "seibootcamps/layout.html" %}
 
-{%- block linktags %}{% endblock linktags %}
+{%- block before_layout %}{% endblock before_layout %}
 
-{%- block scripts %}
-  {{ super() }}
-{%- endblock scripts %}
+{%- block layout %}
+  {%- block document %}{% endblock document %}
+{%- endblock layout %}
 
-{%- block relbar1 %}{% endblock relbar1 %}
-
-{%- block sidebar1 %}{% endblock sidebar1 %}
-
-{%- block content %}
-  {% block body %}{% endblock body %}
-  {%- block sidebar2 %}{% endblock sidebar2 %}
-  {%- block relbar2 %}{% endblock relbar2 %}
-  {%- block footer %}{% endblock footer %}
-  {%- block initRevealjs %}
+{%- block beforeend_body %}
+  {%- block revealjs_init %}
     <script>
       (() => {
         Reveal.initialize({
@@ -30,5 +22,5 @@
         });
       })();
     </script>
-  {%- endblock initRevealjs %}
-{%- endblock content %}
+  {%- endblock revealjs_init %}
+{%- endblock beforeend_body %}
